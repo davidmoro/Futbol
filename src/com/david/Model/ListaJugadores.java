@@ -3,6 +3,7 @@ package com.david.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -105,19 +106,33 @@ public class ListaJugadores implements Serializable {
      * Preguntamos los datos de los atributos que tendran nuestros jugadores en los equipos
      * @return devuelve los atributos que tendran los jugadores
      */
-    public Jugador preguntarInformacion(){
+    public Jugador preguntarInformacion() {
+        boolean datoCorrecto = false;
+        int opcion2 = -1;
+
         Scanner s = new Scanner(System.in);
 
         System.out.println("Nombre del jugador: ");
-        String opcion=s.nextLine();
+        String opcion = s.nextLine();
         System.out.println("Equipo del jugador: ");
-        String opcion1=s.nextLine();
-        System.out.println("Edad del jugador: ");
-        int opcion2=s.nextInt();
-        System.out.println("Nacionalidad del jugador: ");
-        String opcion3=s.next();
+        String opcion1 = s.nextLine();
 
-        return new Jugador(opcion,opcion1,opcion2,opcion3);
+        while (!datoCorrecto) {
+            System.out.println("Edad del jugador: ");
+            try {
+                opcion2 =s.nextInt();
+                datoCorrecto = true;
+
+            } catch (InputMismatchException e) {
+                datoCorrecto = false;
+                System.out.println("Dato incorrecto");
+                s.nextLine();
+            }
+        }
+        System.out.println("Nacionalidad del jugador: ");
+        String opcion3 = s.next();
+
+        return new Jugador(opcion, opcion1, opcion2, opcion3);
 
     }
 
