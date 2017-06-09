@@ -7,3 +7,4 @@ A continuación explicaremos las diferentes opciones del menú:
 1.Mostrar equipos: Seleccionaremos pulsando el número 1 y nos mostrará la lista de equipos de nuestro archivo.
 
 2.Buscar jugadores: Buscaremos los jugadores de nuestro archivo, teniendo que buscar los jugadores insertando el las letras del equipo a elegir.
+3.Ediaasdasd
